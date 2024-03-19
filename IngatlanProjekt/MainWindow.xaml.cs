@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace IngatlanApp
@@ -17,7 +18,25 @@ namespace IngatlanApp
         {
             if (FeladatokListBox.SelectedItem is ListBoxItem selectedItem)
             {
-                
+               switch(selectedItem.Content.ToString())
+                {
+                    case "Összes eladás száma":
+                        ingatlanok.eladásokszáma();
+                        EredmenyekTextBlock.Text = $"{ingatlanok.eladásokszáma()}";
+
+
+						break;
+                    case "Legnagyobb területű ingatlan":
+
+
+                        EredmenyekTextBlock.Text = ingatlanok.s().ToString();
+						
+						break;
+                    case "Összesített eladások értéke":
+
+                        EredmenyekTextBlock.Text = $"{ingatlanok.össz()}";
+                        break;
+				} 
             }
         }
     }
